@@ -1,7 +1,10 @@
 package com.apt.tracker.apartmentmanager.model;
 
 import jakarta.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @Entity
 @Table(name = "users")
@@ -9,7 +12,7 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
 
     @Column(name = "name", nullable = false)
     private String name;
@@ -26,19 +29,17 @@ public class User {
     @Column(name = "password", nullable = false)
     private String password;
 
-    @ElementCollection
-    @CollectionTable(name = "user_flats", joinColumns = @JoinColumn(name = "user_id"))
-    @Column(name = "flat")
-    private List<String> flatList;
+    @Column(name = "taskId")
+    private Long taskId;
 
     @Column(name = "role_type", nullable = false)
     private String roleType;
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -82,12 +83,12 @@ public class User {
         this.password = password;
     }
 
-    public List<String> getFlatList() {
-        return flatList;
+    public Long getTaskId() {
+        return taskId;
     }
 
-    public void setFlatList(List<String> flatList) {
-        this.flatList = flatList;
+    public void setTaskId(Long taskId) {
+        this.taskId = taskId;
     }
 
     public String getRoleType() {

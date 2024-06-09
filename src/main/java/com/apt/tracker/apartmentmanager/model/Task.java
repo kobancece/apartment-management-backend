@@ -20,11 +20,11 @@ public class Task {
     @Column(name = "taskDescription", nullable = false)
     private String taskDescription;
 
-    @Column(name = "assignedName", nullable = false)
+    @Column(name = "assignedName", nullable = true)
     private String assignedName;
 
-    public Task() {
-    }
+    @Column(name = "userEmail", nullable = true)
+    private String userEmail;
 
     public Long getTaskID() {
         return taskID;
@@ -64,5 +64,13 @@ public class Task {
 
     public void setAssignedName(String assignedName) {
         this.assignedName = assignedName;
+    }
+
+    public String getUserEmail() {
+        return userEmail;
+    }
+
+    public void setUserEmail(String userEmail) {
+        this.userEmail = userEmail;
     }
 }

@@ -1,0 +1,2276 @@
+openapi: 3.0.3
+info:
+  title: Swagger Apartment Management System - OpenAPI 3.0
+  description: |-
+    This is a sample Apartment Management System Server based on the OpenAPI 3.0 specification.
+    Some useful links:
+    - [The Apartment Management System repository](https://github.com/swagger-api/swagger-petstore)
+  termsOfService: http://swagger.io/terms/
+  contact:
+    email: 283531@student.pwr.edu.pl
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: 1.0.0
+servers:
+  - url: http://pwrapartmentmanagement/api/v3
+tags:
+  - name: user
+    description: Operations about user
+  - name: address
+    description: Operations about address
+  - name: property
+    description: Operations about property
+  - name: role
+    description: Operations about role
+  - name: financial
+    description: Operations about financial
+  - name: task
+    description: Operations about task
+  - name: maintenance
+    description: Operations about maintenance
+paths:
+  /apartment/address/{userID}:
+    post:
+      tags:
+        - address
+      summary: Add a new address for a user
+      operationId: addUserAddress
+      parameters:
+        - name: userID
+          in: path
+          required: true
+          schema:
+            type: integer
+          description: Unique identifier of the user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddressDTO'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessApiResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 400
+                message: Bad Request
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 401
+                message: Unauthorized
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 403
+                message: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 404
+                message: Not Found
+    get:
+      tags:
+        - address
+      summary: Get addresses for a user
+      operationId: getUserAddresses
+      parameters:
+        - name: userID
+          in: path
+          required: true
+          schema:
+            type: integer
+          description: Unique identifier of the user
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AddressGetResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 400
+                message: Bad Request
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 401
+                message: Unauthorized
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 403
+                message: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 404
+                message: Not Found
+  /apartment/address/{userID}/delete/{addressID}:
+    delete:
+      tags:
+        - address
+      summary: Delete a user's address
+      operationId: deleteUserAddress
+      parameters:
+        - name: userID
+          in: path
+          required: true
+          schema:
+            type: integer
+          description: Unique identifier of the user
+        - name: addressID
+          in: path
+          required: true
+          schema:
+            type: integer
+          description: Unique identifier of the address
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessApiResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 400
+                message: Bad Request
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 401
+                message: Unauthorized
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 403
+                message: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 404
+                message: Not Found
+  /apartment/address/{userID}/update/{addressID}:
+    post:
+      tags:
+        - address
+      summary: Update a user's address
+      operationId: updateUserAddress
+      parameters:
+        - name: userID
+          in: path
+          required: true
+          schema:
+            type: integer
+          description: Unique identifier of the user
+        - name: addressID
+          in: path
+          required: true
+          schema:
+            type: integer
+          description: Unique identifier of the address
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddressDTO'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessApiResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 400
+                message: Bad Request
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 401
+                message: Unauthorized
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 403
+                message: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 404
+                message: Not Found
+  /apartment/property:
+    post:
+      tags:
+        - property
+      summary: Add a new property
+      operationId: addProperty
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PropertyDTO'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessApiResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 400
+                message: Bad Request
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 401
+                message: Unauthorized
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 403
+                message: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 404
+                message: Not Found
+  /apartment/property/{propertyID}/update:
+    post:
+      tags:
+        - property
+      summary: Update a new property
+      operationId: updateProperty
+      parameters: # <--- This is where you define your path parameters
+        - name: propertyID
+          in: path
+          required: true
+          schema:
+            type: integer
+          description: Unique identifier of the property
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PropertyDTO'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessApiResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 400
+                message: Bad Request
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 401
+                message: Unauthorized
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 403
+                message: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 404
+                message: Not Found
+  /apartment/property/{propertyID}:
+    get:
+      tags:
+        - property
+      summary: Get a property by ID
+      operationId: getPropertyById
+      parameters:
+        - name: propertyID
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PropertyDTO'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 400
+                message: Bad Request
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 401
+                message: Unauthorized
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 403
+                message: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 404
+                message: Not Found
+  /apartment/property/{propertyID}/delete:
+    delete:
+      tags:
+        - property
+      summary: Delete a property by ID
+      operationId: deleteProperty
+      parameters:
+        - name: propertyID
+          in: path
+          required: true
+          schema:
+            type: integer
+            description: Unique identifier of the property to be deleted
+      responses:
+        '200':
+          description: Success - Property deleted successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessApiResponse'
+        '400':
+          description: Bad Request - Invalid property ID supplied
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 400
+                message: Bad Request - Invalid property ID supplied
+        '401':
+          description: Unauthorized - Authentication credentials were missing or incorrect
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 401
+                message: Unauthorized - Authentication credentials were missing or incorrect
+        '403':
+          description: Forbidden - The request was valid but you do not have the necessary permissions for the resource
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 403
+                message: Forbidden - The request was valid but you do not have the necessary permissions for the resource
+        '404':
+          description: Not Found - The property could not be found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 404
+                message: Not Found - The property could not be found
+  /apartment/role:
+    post:
+      tags:
+        - role
+      summary: Add a new role
+      operationId: addRole
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RoleDTO'
+      responses:
+        '200':
+          description: Success - Role added successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessApiResponse'
+              example:
+                code: 201
+                message: Success.
+        '400':
+          description: Bad Request - Invalid property ID supplied
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 400
+                message: Bad Request - Invalid property ID supplied
+        '401':
+          description: Unauthorized - Authentication credentials were missing or incorrect
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 401
+                message: Unauthorized - Authentication credentials were missing or incorrect
+        '403':
+          description: Forbidden - The request was valid but you do not have the necessary permissions for the resource
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 403
+                message: Forbidden - The request was valid but you do not have the necessary permissions for the resource
+        '404':
+          description: Not Found - The property could not be found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 404
+                message: Not Found - The property could not be found
+    get:
+      tags:
+        - role
+      summary: Get all roles
+      operationId: getAllRoles
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RoleDTO'
+        '400':
+          description: Bad Request - Invalid property ID supplied
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 400
+                message: Bad Request - Invalid property ID supplied
+        '401':
+          description: Unauthorized - Authentication credentials were missing or incorrect
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 401
+                message: Unauthorized - Authentication credentials were missing or incorrect
+        '403':
+          description: Forbidden - The request was valid but you do not have the necessary permissions for the resource
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 403
+                message: Forbidden - The request was valid but you do not have the necessary permissions for the resource
+        '404':
+          description: Not Found - The property could not be found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 404
+                message: Not Found - The property could not be found
+  /apartment/role/{roleID}:
+    get:
+      tags:
+        - role
+      summary: Get a specific role by ID
+      operationId: getRoleById
+      parameters:
+        - name: roleID
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RoleDTO'
+        '400':
+          description: Bad Request - Invalid property ID supplied
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 400
+                message: Bad Request - Invalid property ID supplied
+        '401':
+          description: Unauthorized - Authentication credentials were missing or incorrect
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 401
+                message: Unauthorized - Authentication credentials were missing or incorrect
+        '403':
+          description: Forbidden - The request was valid but you do not have the necessary permissions for the resource
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 403
+                message: Forbidden - The request was valid but you do not have the necessary permissions for the resource
+        '404':
+          description: Not Found - The property could not be found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 404
+                message: Not Found - The property could not be found
+  /apartment/role/{roleID}/delete:
+    delete:
+      tags:
+        - role
+      summary: Delete a role by ID
+      operationId: deleteRole
+      parameters:
+        - name: roleID
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Success - Role deleted successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessApiResponse'
+              example:
+                code: 201
+                message: Success.
+        '400':
+          description: Bad Request - Invalid property ID supplied
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 400
+                message: Bad Request - Invalid property ID supplied
+        '401':
+          description: Unauthorized - Authentication credentials were missing or incorrect
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 401
+                message: Unauthorized - Authentication credentials were missing or incorrect
+        '403':
+          description: Forbidden - The request was valid but you do not have the necessary permissions for the resource
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 403
+                message: Forbidden - The request was valid but you do not have the necessary permissions for the resource
+        '404':
+          description: Not Found - The property could not be found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 404
+                message: Not Found - The property could not be found
+  /apartment/role/{roleID}/update:
+    post:
+      tags:
+        - role
+      summary: Update an existing role
+      operationId: updateRole
+      parameters:
+        - name: roleID
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RoleDTO'
+      responses:
+        '200':
+          description: Success - Role updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessApiResponse'
+              example:
+                code: 201
+                message: "Success."
+        '400':
+          description: Bad Request - Invalid property ID supplied
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 400
+                message: Bad Request - Invalid property ID supplied
+        '401':
+          description: Unauthorized - Authentication credentials were missing or incorrect
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 401
+                message: Unauthorized - Authentication credentials were missing or incorrect
+        '403':
+          description: Forbidden - The request was valid but you do not have the necessary permissions for the resource
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 403
+                message: Forbidden - The request was valid but you do not have the necessary permissions for the resource
+        '404':
+          description: Not Found - The property could not be found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 404
+                message: Not Found - The property could not be found
+  /apartment/user:
+    post:
+      tags:
+        - user
+      summary: Create a new user
+      operationId: createUser
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserDTO'
+      responses:
+        '200':
+          description: User created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessApiResponse'
+        '400':
+          description: Bad Request - Invalid property ID supplied
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 400
+                message: Bad Request - Invalid property ID supplied
+        '401':
+          description: Unauthorized - Authentication credentials were missing or incorrect
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 401
+                message: Unauthorized - Authentication credentials were missing or incorrect
+        '403':
+          description: Forbidden - The request was valid but you do not have the necessary permissions for the resource
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 403
+                message: Forbidden - The request was valid but you do not have the necessary permissions for the resource
+        '404':
+          description: Not Found - The property could not be found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 404
+                message: Not Found - The property could not be found
+    get:
+      tags:
+        - user
+      summary: Get all users
+      operationId: getAllUsers
+      responses:
+        '200':
+          description: Successfully retrieved users
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UserDTO'
+        '400':
+          description: Bad Request - Invalid property ID supplied
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 400
+                message: Bad Request - Invalid property ID supplied
+        '401':
+          description: Unauthorized - Authentication credentials were missing or incorrect
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 401
+                message: Unauthorized - Authentication credentials were missing or incorrect
+        '403':
+          description: Forbidden - The request was valid but you do not have the necessary permissions for the resource
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 403
+                message: Forbidden - The request was valid but you do not have the necessary permissions for the resource
+        '404':
+          description: Not Found - The property could not be found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 404
+                message: Not Found - The property could not be found
+  /apartment/user/login:
+    post:
+      tags:
+        - user
+      summary: Login user
+      operationId: loginUser
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserLoginDTO'
+      responses:
+        '200':
+          description: User created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessApiResponse'
+        '400':
+          description: Bad Request - Invalid property ID supplied
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 400
+                message: Bad Request - Invalid property ID supplied
+        '401':
+          description: Unauthorized - Authentication credentials were missing or incorrect
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 401
+                message: Unauthorized - Authentication credentials were missing or incorrect
+        '403':
+          description: Forbidden - The request was valid but you do not have the necessary permissions for the resource
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 403
+                message: Forbidden - The request was valid but you do not have the necessary permissions for the resource
+        '404':
+          description: Not Found - The property could not be found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 404
+                message: Not Found - The property could not be found
+  /apartment/user/{userID}:
+    get:
+      tags:
+        - user
+      summary: Get a specific user by ID
+      operationId: getUserById
+      parameters:
+        - name: userID
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successfully retrieved user
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserDTO'
+        '400':
+          description: Bad Request - Invalid property ID supplied
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 400
+                message: Bad Request - Invalid property ID supplied
+        '401':
+          description: Unauthorized - Authentication credentials were missing or incorrect
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 401
+                message: Unauthorized - Authentication credentials were missing or incorrect
+        '403':
+          description: Forbidden - The request was valid but you do not have the necessary permissions for the resource
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 403
+                message: Forbidden - The request was valid but you do not have the necessary permissions for the resource
+        '404':
+          description: Not Found - The property could not be found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 404
+                message: Not Found - The property could not be found
+  /apartment/user/{userID}/delete:
+    delete:
+      tags:
+        - user
+      summary: Delete a user by ID
+      operationId: deleteUser
+      parameters:
+        - name: userID
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: User deleted successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessApiResponse'
+        '400':
+          description: Bad Request - Invalid property ID supplied
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 400
+                message: Bad Request - Invalid property ID supplied
+        '401':
+          description: Unauthorized - Authentication credentials were missing or incorrect
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 401
+                message: Unauthorized - Authentication credentials were missing or incorrect
+        '403':
+          description: Forbidden - The request was valid but you do not have the necessary permissions for the resource
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 403
+                message: Forbidden - The request was valid but you do not have the necessary permissions for the resource
+        '404':
+          description: Not Found - The property could not be found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 404
+                message: Not Found - The property could not be found
+  /apartment/user/{userID}/update:
+    post:
+      tags:
+        - user
+      summary: Update an existing user
+      operationId: updateUser
+      parameters:
+        - name: userID
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserDTO'
+      responses:
+        '200':
+          description: User updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessApiResponse'
+        '400':
+          description: Bad Request - Invalid property ID supplied
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 400
+                message: Bad Request - Invalid property ID supplied
+        '401':
+          description: Unauthorized - Authentication credentials were missing or incorrect
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 401
+                message: Unauthorized - Authentication credentials were missing or incorrect
+        '403':
+          description: Forbidden - The request was valid but you do not have the necessary permissions for the resource
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 403
+                message: Forbidden - The request was valid but you do not have the necessary permissions for the resource
+        '404':
+          description: Not Found - The property could not be found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 404
+                message: Not Found - The property could not be found
+  /apartment/user/{userID}/logout:
+    get:
+      tags:
+        - user
+      summary: Log out a user
+      operationId: logoutUser
+      parameters:
+        - name: userID
+          in: path
+          required: true
+          schema:
+            type: integer
+            description: Unique identifier of the user to log out
+      responses:
+        '200':
+          description: User logged out successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 200
+                message: User logged out successfully
+        '400':
+          description: Bad Request - Invalid user ID supplied
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 400
+                message: Bad Request - Invalid user ID supplied
+        '401':
+          description: Unauthorized - Authentication credentials were missing or incorrect
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 401
+                message: Unauthorized - Authentication credentials were missing or incorrect
+        '403':
+          description: Forbidden - The request was valid but you do not have the necessary permissions for the resource
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 403
+                message: Forbidden - The request was valid but you do not have the necessary permissions for the resource
+        '404':
+          description: Not Found - The user could not be found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 404
+                message: Not Found - The user could not be found
+  /apartment/financial/trackrent:
+    post:
+      tags:
+        - financial
+      summary: Track rent for a specific property
+      operationId: trackRent
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FinancialTrackRent'
+      responses:
+        '200':
+          description: Rent tracking initiated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessApiResponse'
+        '400':
+          description: Bad Request - Invalid user ID supplied
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 400
+                message: Bad Request - Invalid user ID supplied
+        '401':
+          description: Unauthorized - Authentication credentials were missing or incorrect
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 401
+                message: Unauthorized - Authentication credentials were missing or incorrect
+        '403':
+          description: Forbidden - The request was valid but you do not have the necessary permissions for the resource
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 403
+                message: Forbidden - The request was valid but you do not have the necessary permissions for the resource
+        '404':
+          description: Not Found - The user could not be found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 404
+                message: Not Found - The user could not be found
+  /apartment/financial/trackdues:
+    post:
+      tags:
+        - financial
+      summary: Track dues for a specific property
+      operationId: trackDues
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FinancialTrackDues'
+      responses:
+        '200':
+          description: Dues tracking initiated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessApiResponse'
+        '400':
+          description: Bad Request - Invalid user ID supplied
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 400
+                message: Bad Request - Invalid user ID supplied
+        '401':
+          description: Unauthorized - Authentication credentials were missing or incorrect
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 401
+                message: Unauthorized - Authentication credentials were missing or incorrect
+        '403':
+          description: Forbidden - The request was valid but you do not have the necessary permissions for the resource
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 403
+                message: Forbidden - The request was valid but you do not have the necessary permissions for the resource
+        '404':
+          description: Not Found - The user could not be found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 404
+                message: Not Found - The user could not be found
+  /apartment/financial/alert:
+    get:
+      tags:
+        - financial
+      summary: Get financial alerts
+      operationId: getFinancialAlerts
+      responses:
+        '200':
+          description: Successfully retrieved financial alerts
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FinancialAlertsResponse'
+        '400':
+          description: Bad Request - Invalid user ID supplied
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 400
+                message: Bad Request - Invalid user ID supplied
+        '401':
+          description: Unauthorized - Authentication credentials were missing or incorrect
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 401
+                message: Unauthorized - Authentication credentials were missing or incorrect
+        '403':
+          description: Forbidden - The request was valid but you do not have the necessary permissions for the resource
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 403
+                message: Forbidden - The request was valid but you do not have the necessary permissions for the resource
+        '404':
+          description: Not Found - The user could not be found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 404
+                message: Not Found - The user could not be found
+  /apartment/task/create:
+    post:
+      tags:
+        - task
+      summary: Create a task
+      operationId: createTask
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TaskDTO'
+      responses:
+        '200':
+          description: Task created successfully
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SuccessApiResponse'
+        '400':
+          description: Bad Request - Invalid user ID supplied
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 400
+                message: Bad Request - Invalid user ID supplied
+        '401':
+          description: Unauthorized - Authentication credentials were missing or incorrect
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 401
+                message: Unauthorized - Authentication credentials were missing or incorrect
+        '403':
+          description: Forbidden - The request was valid but you do not have the necessary permissions for the resource
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 403
+                message: Forbidden - The request was valid but you do not have the necessary permissions for the resource
+        '404':
+          description: Not Found - The user could not be found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 404
+                message: Not Found - The user could not be found
+  /apartment/task/{taskID}/update:
+    post:
+      tags:
+        - task
+      summary: Update a task
+      operationId: updateTask
+      parameters:
+        - name: taskID
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TaskDTO'
+      responses:
+        '200':
+          description: Task created successfully
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SuccessApiResponse'
+        '400':
+          description: Bad Request - Invalid user ID supplied
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 400
+                message: Bad Request - Invalid user ID supplied
+        '401':
+          description: Unauthorized - Authentication credentials were missing or incorrect
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 401
+                message: Unauthorized - Authentication credentials were missing or incorrect
+        '403':
+          description: Forbidden - The request was valid but you do not have the necessary permissions for the resource
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 403
+                message: Forbidden - The request was valid but you do not have the necessary permissions for the resource
+        '404':
+          description: Not Found - The user could not be found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 404
+                message: Not Found - The user could not be found
+  /apartment/task/{taskID}:
+    get:
+      tags:
+        - task
+      summary: Retrieve a specific task by ID
+      operationId: getTaskById
+      parameters:
+        - name: taskID
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successfully retrieved the task
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TaskDTO'
+        '400':
+          description: Bad Request - Invalid user ID supplied
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 400
+                message: Bad Request - Invalid user ID supplied
+        '401':
+          description: Unauthorized - Authentication credentials were missing or incorrect
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 401
+                message: Unauthorized - Authentication credentials were missing or incorrect
+        '403':
+          description: Forbidden - The request was valid but you do not have the necessary permissions for the resource
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 403
+                message: Forbidden - The request was valid but you do not have the necessary permissions for the resource
+        '404':
+          description: Not Found - The user could not be found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 404
+                message: Not Found - The user could not be found
+  /apartment/task:
+    get:
+      tags:
+        - task
+      summary: Retrieve all tasks
+      operationId: getAllTasks
+      responses:
+        '200':
+          description: Successfully retrieved all tasks
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TasksResponse'
+        '400':
+          description: Bad Request - Invalid user ID supplied
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 400
+                message: Bad Request - Invalid user ID supplied
+        '401':
+          description: Unauthorized - Authentication credentials were missing or incorrect
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 401
+                message: Unauthorized - Authentication credentials were missing or incorrect
+        '403':
+          description: Forbidden - The request was valid but you do not have the necessary permissions for the resource
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 403
+                message: Forbidden - The request was valid but you do not have the necessary permissions for the resource
+        '404':
+          description: Not Found - The user could not be found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 404
+                message: Not Found - The user could not be found
+  /apartment/task/technician:
+    get:
+      tags:
+        - task
+      summary: Retrieve tasks assigned to technicians
+      operationId: getTasksForTechnicians
+      responses:
+        '200':
+          description: Successfully retrieved tasks for technicians
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TaskDTO'
+        '400':
+          description: Bad Request - Invalid user ID supplied
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 400
+                message: Bad Request - Invalid user ID supplied
+        '401':
+          description: Unauthorized - Authentication credentials were missing or incorrect
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 401
+                message: Unauthorized - Authentication credentials were missing or incorrect
+        '403':
+          description: Forbidden - The request was valid but you do not have the necessary permissions for the resource
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 403
+                message: Forbidden - The request was valid but you do not have the necessary permissions for the resource
+        '404':
+          description: Not Found - The user could not be found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 404
+                message: Not Found - The user could not be found
+  /apartment/task/{taskID}/delete:
+    delete:
+      tags:
+        - task
+      summary: Delete a maintenance task
+      operationId: deleteMaintenanceTask
+      parameters:
+        - name: taskID
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Maintenance task deleted successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessApiResponse'
+        '400':
+          description: Bad Request - Invalid user ID supplied
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 400
+                message: Bad Request - Invalid user ID supplied
+        '401':
+          description: Unauthorized - Authentication credentials were missing or incorrect
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 401
+                message: Unauthorized - Authentication credentials were missing or incorrect
+        '403':
+          description: Forbidden - The request was valid but you do not have the necessary permissions for the resource
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 403
+                message: Forbidden - The request was valid but you do not have the necessary permissions for the resource
+        '404':
+          description: Not Found - The user could not be found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 404
+                message: Not Found - The user could not be found
+  /apartment/maintenance/setSchedule:
+    post:
+      tags:
+        - maintenance
+      summary: Set maintenance task schedule
+      operationId: setMaintenanceSchedule
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MaintenanceSchedule'
+      responses:
+        '200':
+          description: Maintenance schedule set successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessApiResponse'
+        '400':
+          description: Bad Request - Invalid user ID supplied
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 400
+                message: Bad Request - Invalid user ID supplied
+        '401':
+          description: Unauthorized - Authentication credentials were missing or incorrect
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 401
+                message: Unauthorized - Authentication credentials were missing or incorrect
+        '403':
+          description: Forbidden - The request was valid but you do not have the necessary permissions for the resource
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 403
+                message: Forbidden - The request was valid but you do not have the necessary permissions for the resource
+        '404':
+          description: Not Found - The user could not be found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 404
+                message: Not Found - The user could not be found
+  /apartment/maintenance/setPrioritize:
+    post:
+      tags:
+        - maintenance
+      summary: Prioritize a maintenance task
+      operationId: prioritizeMaintenanceTask
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MaintenancePrioritize'
+      responses:
+        '200':
+          description: Maintenance task prioritized successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessApiResponse'
+        '400':
+          description: Bad Request - Invalid user ID supplied
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 400
+                message: Bad Request - Invalid user ID supplied
+        '401':
+          description: Unauthorized - Authentication credentials were missing or incorrect
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 401
+                message: Unauthorized - Authentication credentials were missing or incorrect
+        '403':
+          description: Forbidden - The request was valid but you do not have the necessary permissions for the resource
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 403
+                message: Forbidden - The request was valid but you do not have the necessary permissions for the resource
+        '404':
+          description: Not Found - The user could not be found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 404
+                message: Not Found - The user could not be found
+  /apartment/maintenance/{taskID}/setStatus:
+    post:
+      tags:
+        - maintenance
+      summary: Set status of a maintenance task
+      operationId: setMaintenanceTaskStatusPost
+      parameters:
+        - name: taskID
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MaintenanceStatus'
+      responses:
+        '200':
+          description: Maintenance task status set successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessApiResponse'
+        '400':
+          description: Bad Request - Invalid user ID supplied
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 400
+                message: Bad Request - Invalid user ID supplied
+        '401':
+          description: Unauthorized - Authentication credentials were missing or incorrect
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 401
+                message: Unauthorized - Authentication credentials were missing or incorrect
+        '403':
+          description: Forbidden - The request was valid but you do not have the necessary permissions for the resource
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 403
+                message: Forbidden - The request was valid but you do not have the necessary permissions for the resource
+        '404':
+          description: Not Found - The user could not be found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 404
+                message: Not Found - The user could not be found
+  /apartment/maintenance/{taskID}/update:
+    post:
+      tags:
+        - maintenance
+      summary: Update status of a maintenance task
+      operationId: setMaintenanceTaskStatusPut
+      parameters:
+        - name: taskID
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MaintenanceStatus'
+      responses:
+        '200':
+          description: Maintenance task status updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessApiResponse'
+        '400':
+          description: Bad Request - Invalid user ID supplied
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 400
+                message: Bad Request - Invalid user ID supplied
+        '401':
+          description: Unauthorized - Authentication credentials were missing or incorrect
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 401
+                message: Unauthorized - Authentication credentials were missing or incorrect
+        '403':
+          description: Forbidden - The request was valid but you do not have the necessary permissions for the resource
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 403
+                message: Forbidden - The request was valid but you do not have the necessary permissions for the resource
+        '404':
+          description: Not Found - The user could not be found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 404
+                message: Not Found - The user could not be found
+components:
+  schemas:
+    SuccessApiResponse:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+          default: 201
+        message:
+          type: string
+          default: "Success."
+    ApiResponse:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+    AddressDTO:
+      type: object
+      properties:
+        streetName:
+          type: string
+          example: "123 Main St"
+        cityName:
+          type: string
+          example: "Anytown"
+        postalCode:
+          type: string
+          example: "12345"
+        state:
+          type: string
+          example: "Anystate"
+      required:
+        - streetName
+        - cityName
+        - postalCode
+        - state
+    AddressGetResponse:
+      type: object
+      properties:
+        addressID:
+          type: integer
+          example: 1
+        streetName:
+          type: string
+          example: "123 Main St"
+        cityName:
+          type: string
+          example: "Anytown"
+        postalCode:
+          type: string
+          example: "12345"
+        state:
+          type: string
+          example: "Anystate"
+        userID:
+          type: integer
+          example: 2
+      required:
+        - addressID
+        - streetName
+        - cityName
+        - postalCode
+        - state
+        - userID
+    PropertyDTO:
+      type: object
+      properties:
+        propertyID:
+          type: integer
+        propertyName:
+          type: string
+        address:
+          $ref: '#/components/schemas/AddressDTO'
+        description:
+          type: string
+        amenities:
+          type: string
+        flatNumber:
+          type: integer
+        size:
+          type: number
+          format: float
+        numberOfRooms:
+          type: integer
+        numberOfBathrooms:
+          type: integer
+        rent:
+          type: number
+          format: float
+        rentalStatus:
+          type: string
+        numberOfBalconies:
+          type: integer
+        internetStatus:
+          type: string
+        infrastructure:
+          type: string
+      required:
+        - propertyID
+        - propertyName
+        - address
+        - description
+        - amenities
+        - flatNumber
+        - size
+        - numberOfRooms
+        - numberOfBathrooms
+        - rent
+        - rentalStatus
+        - numberOfBalconies
+        - internetStatus
+        - infrastructure
+    RoleDTO:
+      type: object
+      properties:
+        roleName:
+          type: string
+          example: "Manager"
+        roleID:
+          type: integer
+          example: 1
+      required:
+        - roleName
+        - roleID
+    UserDTO:
+      type: object
+      properties:
+        name:
+          type: string
+          example: "John"
+        surname:
+          type: string
+          example: "Doe"
+        email:
+          type: string
+          example: "john.doe@example.com"
+        phoneNumber:
+          type: string
+          example: "+1234567890"
+        password:
+          type: string
+          example: "securePassword123"
+        flatList:
+          type: array
+          items:
+            type: string
+          example: ["Flat101", "Flat102"]
+        roleType:
+          type: string
+          example: "Tenant"
+      required:
+        - name
+        - surname
+        - email
+        - phoneNumber
+        - password
+        - roleType
+    UserLoginDTO:
+      type: object
+      properties:
+        email:
+          type: string
+          example: "john.doe@example.com"
+        password:
+          type: string
+          example: "securePassword123"
+      required:
+        - email
+        - password
+    FinancialTrackRent:
+      type: object
+      properties:
+        userID:
+          type: integer
+          example: "user123"
+        propertyID:
+          type: integer
+          example: 1
+        rentAmount:
+          type: number
+          example: 1250.60
+      required:
+        - userID
+        - propertyID
+        - rentAmount
+    FinancialTrackDues:
+      type: object
+      properties:
+        userID:
+          type: integer
+          example: "user123"
+        propertyID:
+          type: integer
+          example: 1
+        duestAmount:
+          type: number
+          example: 100.60
+      required:
+        - userID
+        - propertyID
+        - duesAmount
+    SendMessage:
+      type: object
+      properties:
+        userID:
+          type: integer
+          example: 1
+        receiverEmail:
+          type: string
+          format: email
+          example: "receiver@example.com"
+        senderEmail:
+          type: string
+          format: email
+          example: "sender@example.com"
+        messageContent:
+          type: string
+          example: "This is a message content."
+        messageSubject:
+          type: string
+          example: "Message Subject"
+      required:
+        - userID
+        - receiverEmail
+        - senderEmail
+        - messageContent
+        - messageSubject
+    MessageDTO:
+      type: object
+      properties:
+        senderEmail:
+          type: string
+          format: email
+          example: "sender@example.com"
+        messageContent:
+          type: string
+          example: "This is a message content."
+        messageSubject:
+          type: string
+          example: "Message Subject"
+        receivedAt:
+          type: string
+          format: date-time
+          example: "2023-04-05T14:48:00.000Z"
+      required:
+        - senderEmail
+        - messageContent
+        - messageSubject
+        - receivedAt
+    TaskDTO:
+      type: object
+      properties:
+        taskName:
+          type: string
+          example: "Fix light fixture"
+        userID:
+          type: integer
+          example: 1
+        taskDescription:
+          type: string
+          example: "The light fixture in the living room is flickering."
+        assignedName:
+          type: string
+          example: "John Doe"
+      required:
+        - taskName
+        - userID
+        - taskDescription
+        - assignedName
+    MaintenanceSchedule:
+      type: object
+      properties:
+        taskID:
+          type: string
+          example: "task123"
+        taskName:
+          type: string
+          example: "Fix light fixture"
+        taskSchedule:
+          type: string
+          example: "2023-05-01T09:00:00Z"
+      required:
+        - taskID
+        - taskName
+        - taskSchedule
+    MaintenancePrioritize:
+      type: object
+      properties:
+        taskID:
+          type: string
+          example: "task123"
+        taskPrioritize:
+          type: string
+          example: "High"
+      required:
+        - taskID
+        - taskPrioritize
+    MaintenanceStatus:
+      type: object
+      properties:
+        taskID:
+          type: string
+          example: "task123"
+        taskStatus:
+          type: string
+          example: "Completed"
+      required:
+        - taskID
+        - taskStatus
+    FinancialAlertsResponse:
+      type: array
+      items:
+        type: object
+        properties:
+          alertID:
+            type: string
+            example: "alert789"
+          message:
+            type: string
+            example: "Rent due in 3 days for property456"
+    TasksResponse:
+      type: array
+      items:
+        $ref: '#/components/schemas/TaskDTO'
+    MaintenanceRequestDetailsResponse:
+      type: array
+      items:
+        type: object
+        properties:
+          requestId:
+            type: string
+            example: "req123"
+          description:
+            type: string
+            example: "Leaky faucet in the kitchen"
+          status:
+            type: string
+            example: "Pending"
+    RentPaymentDetailsResponse:
+      type: object
+      properties:
+        paymentStatus:
+          type: string
+          example: "Paid"
+        dueDate:
+          type: string
+          format: date
+          example: "2023-05-01"
+        amount:
+          type: number
+          format: float
+          example: 1500.00
+    AgreementDetailsResponse:
+      type: object
+      properties:
+        startDate:
+          type: string
+          format: date
+          example: "2023-01-01"
+        endDate:
+          type: string
+          format: date
+          example: "2024-01-01"
+        monthlyRent:
+          type: number
+          format: float
+          example: 1500.00

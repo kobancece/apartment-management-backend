@@ -37,20 +37,8 @@ public class TaskController {
     @PostMapping("/{taskID}/update")
     public ResponseEntity<?> updateTask(@PathVariable Long taskID, @RequestBody Task taskDetails) {
         try {
-            Task existingTask = taskService.getTaskById(taskID);
-            if (existingTask != null) {
-                existingTask.setTaskName(taskDetails.getTaskName());
-                existingTask.setUserID(taskDetails.getUserID());
-                existingTask.setTaskDescription(taskDetails.getTaskDescription());
-                existingTask.setAssignedName(taskDetails.getAssignedName());
-                Task updatedTask = taskService.createOrUpdateTask(existingTask);
-                return ResponseEntity.ok(updatedTask);
-            } else {
-                return ResponseEntity.status(404).body(Map.of(
-                    "code", 404,
-                    "message", "Task not found."
-                ));
-            }
+            Task updatedTask = taskService.updateTask(taskID, taskDetails);
+            return ResponseEntity.ok(updatedTask);
         } catch (Exception e) {
             return ResponseEntity.internalServerError().body(Map.of(
                 "code", 500,
@@ -81,19 +69,6 @@ public class TaskController {
             return ResponseEntity.status(404).body(Map.of(
                 "code", 404,
                 "message", "Task not found."
-            ));
-        }
-    }
-
-    @GetMapping("/technician")
-    public ResponseEntity<?> getTasksForTechnicians() {
-        try {
-            List<Task> tasksAssignedToTechnicians = taskService.getTasksForTechnicians();
-            return ResponseEntity.ok(tasksAssignedToTechnicians);
-        } catch (Exception e) {
-            return ResponseEntity.status(500).body(Map.of(
-                "code", 500,
-                "message", "Error retrieving tasks for technicians."
             ));
         }
     }

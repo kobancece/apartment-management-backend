@@ -1,6 +1,7 @@
 package com.apt.tracker.apartmentmanager.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,33 +23,54 @@ public class UserService {
         return userRepository.findAll();
     }
 
-    public User findUserById(int userID) {
-        return userRepository.findById(userID).orElse(null);
+    public User findUserById(Integer userId) {
+        return userRepository.findById(userId).orElse(null);
+    }
+
+    public User updateUserTasks(Integer userId, Long taskId) {
+        User user = findUserById(userId);
+        if (user != null) {
+            user.setTaskId(taskId);
+            return userRepository.save(user);
+        }
+        return null;
     }
 
     public User findUserByEmail(String email) {
         return userRepository.findByEmail(email);
     }
 
-    public User updateUser(int userID, User userDetails) {
-        return userRepository.findById(userID).map(existingUser -> {
-            existingUser.setName(userDetails.getName());
-            existingUser.setSurname(userDetails.getSurname());
-            existingUser.setEmail(userDetails.getEmail());
-            existingUser.setPhoneNumber(userDetails.getPhoneNumber());
-            existingUser.setPassword(userDetails.getPassword());
-            existingUser.setFlatList(userDetails.getFlatList());
-            existingUser.setRoleType(userDetails.getRoleType());
+    public List<User> findUsersByRole(String role) {
+        return userRepository.findByRoleType(role);
+    }
+    
+    public User updateUser(Integer userId, User updatedUser) {
+        Optional<User> existingUserOptional = userRepository.findById(userId);
+        if (existingUserOptional.isPresent()) {
+            User existingUser = existingUserOptional.get();
+            existingUser.setName(updatedUser.getName());
+            existingUser.setSurname(updatedUser.getSurname());
+            existingUser.setEmail(updatedUser.getEmail());
+            existingUser.setPhoneNumber(updatedUser.getPhoneNumber());
+            existingUser.setPassword(updatedUser.getPassword());
+            existingUser.setRoleType(updatedUser.getRoleType());
+            existingUser.setTaskId(updatedUser.getTaskId());
             return userRepository.save(existingUser);
-        }).orElse(null);
+        }
+        return null;
     }
 
-    public void deleteUserById(int userID) {
+    public void deleteUserById(Integer userID) {
         userRepository.deleteById(userID);
     }
 
     public boolean existsById(Integer userId) {
         return userRepository.existsById(userId);
     }
+
+    public List<User> getUsersByRole(String role) {
+        return userRepository.findByRoleType(role);
+    }
+    
 
 }

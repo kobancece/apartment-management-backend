@@ -1,23 +1,15 @@
 package com.apt.tracker.apartmentmanager.api;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
+import com.apt.tracker.apartmentmanager.model.User;
+import com.apt.tracker.apartmentmanager.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import com.apt.tracker.apartmentmanager.model.User;
-import com.apt.tracker.apartmentmanager.service.UserService;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
@@ -26,6 +18,12 @@ public class UserController {
 
     @Autowired
     private UserService userService;
+
+    @GetMapping("/technicians")
+    public ResponseEntity<List<User>> getTechnicians() {
+        List<User> technicians = userService.findUsersByRole("technician");
+        return new ResponseEntity<>(technicians, HttpStatus.OK);
+    }
 
     @PostMapping
     public ResponseEntity<?> createUser(@RequestBody User user) {
@@ -70,7 +68,7 @@ public class UserController {
             return new ResponseEntity<>(response, HttpStatus.UNAUTHORIZED);
         }
     }
-    
+
     @GetMapping
     public ResponseEntity<List<User>> getAllUsers() {
         List<User> users = userService.findAllUsers();
@@ -85,7 +83,7 @@ public class UserController {
     }
 
     @PostMapping("/{userID}/update")
-    public ResponseEntity<?> updateUser(@PathVariable int userID, @RequestBody User user) {
+    public ResponseEntity<?> updateUser(@PathVariable Integer userID, @RequestBody User user) {
         User existingUser = userService.findUserById(userID);
         if (existingUser == null) {
             Map<String, Object> response = new HashMap<>();
@@ -116,4 +114,11 @@ public class UserController {
         response.put("message", "Success.");
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
+
+    @GetMapping("/role/{role}")
+    public ResponseEntity<List<User>> getUsersByRole(@PathVariable String role) {
+        List<User> users = userService.getUsersByRole(role);
+        return ResponseEntity.ok(users);
+    }
+
 }

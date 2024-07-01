@@ -1,10 +1,7 @@
 package com.apt.tracker.apartmentmanager.model;
 
 import jakarta.persistence.*;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 @Entity
 @Table(name = "users")
@@ -29,11 +26,16 @@ public class User {
     @Column(name = "password", nullable = false)
     private String password;
 
-    @Column(name = "taskId")
-    private Long taskId;
+    @Column(name = "tasks", nullable = true, columnDefinition = "TEXT")
+    private String tasks;
+
+    @Column(name = "properties", nullable = true, columnDefinition = "TEXT")
+    private String properties;
 
     @Column(name = "role_type", nullable = false)
     private String roleType;
+
+    // Getters and Setters
 
     public Integer getId() {
         return id;
@@ -83,12 +85,20 @@ public class User {
         this.password = password;
     }
 
-    public Long getTaskId() {
-        return taskId;
+    public String getTasks() {
+        return tasks;
     }
 
-    public void setTaskId(Long taskId) {
-        this.taskId = taskId;
+    public void setTasks(String tasks) {
+        this.tasks = tasks;
+    }
+
+    public String getProperties() {
+        return properties;
+    }
+
+    public void setProperties(String properties) {
+        this.properties = properties;
     }
 
     public String getRoleType() {

@@ -1,0 +1,843 @@
+@prefix rental: <http://apartmentmanagement.com/rental#> .
+@prefix ex: <http://example.com/resources#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+# Listing 1
+ex:Apartment1 a rental:Flat ;
+              rental:hasLocation ex:Location1 ;
+              rental:hasPrice ex:Price1 ;
+              rental:hasSize ex:Size1 ;
+              rental:hasRoom ex:Room1, ex:Room2 ;
+              rental:originatesFrom ex:Date1 ;
+              rental:hasQuality ex:HighQuality .
+
+ex:Location1 a rental:Location ;
+             rdfs:label "Wrocław, Stare Miasto" .
+
+ex:Price1 a rental:Price ;
+          rdfs:label "3197 PLN/month" .
+
+ex:Size1 a rental:Size ;
+         rdfs:label "48 m²" .
+
+ex:Room1 a rental:Room ;
+         rdfs:label "Room 1" .
+
+ex:Room2 a rental:Room ;
+         rdfs:label "Room 2" .
+
+ex:Date1 a rental:Time ;
+         rdfs:label "25/05/2024" .
+
+ex:HighQuality a rental:HighQuality .
+
+# Listing 2
+ex:Apartment2 a rental:Flat ;
+              rental:hasLocation ex:Location2 ;
+              rental:hasPrice ex:Price2 ;
+              rental:hasSize ex:Size2 ;
+              rental:hasRoom ex:Room3 ;
+              rental:originatesFrom ex:Date2 ;
+              rental:hasQuality ex:HighQuality .
+
+ex:Location2 a rental:Location ;
+             rdfs:label "Wrocław, ulica Romana Dmowskiego" .
+
+ex:Price2 a rental:Price ;
+          rdfs:label "3504 PLN/month" .
+
+ex:Size2 a rental:Size ;
+         rdfs:label "50 m²" .
+
+ex:Room3 a rental:Room ;
+         rdfs:label "Room 1" .
+
+ex:Date2 a rental:Time ;
+         rdfs:label "25/05/2024" .
+
+ex:HighQuality a rental:HighQuality .
+
+# Listing 3
+ex:Apartment3 a rental:Flat ;
+              rental:hasLocation ex:Location3 ;
+              rental:hasPrice ex:Price3 ;
+              rental:hasSize ex:Size3 ;
+              rental:hasRoom ex:Room4, ex:Room5 ;
+              rental:originatesFrom ex:Date3 ;
+              rental:hasQuality ex:HighQuality .
+
+ex:Location3 a rental:Location ;
+             rdfs:label "Wrocław, Krzyki" .
+
+ex:Price3 a rental:Price ;
+          rdfs:label "5541 PLN/month" .
+
+ex:Size3 a rental:Size ;
+         rdfs:label "59 m²" .
+
+ex:Room4 a rental:Room ;
+         rdfs:label "Room 1" .
+
+ex:Room5 a rental:Room ;
+         rdfs:label "Room 2" .
+
+ex:Date3 a rental:Time ;
+         rdfs:label "20/05/2024" .
+
+ex:HighQuality a rental:HighQuality .
+
+# Listing 4
+ex:Apartment4 a rental:Flat ;
+              rental:hasLocation ex:Location4 ;
+              rental:hasPrice ex:Price4 ;
+              rental:hasSize ex:Size4 ;
+              rental:hasRoom ex:Room6, ex:Room7 ;
+              rental:originatesFrom ex:Date4 ;
+              rental:hasQuality ex:HighQuality .
+
+ex:Location4 a rental:Location ;
+             rdfs:label "Wrocław, ulica Gazowa" .
+
+ex:Price4 a rental:Price ;
+          rdfs:label "5500 PLN/month" .
+
+ex:Size4 a rental:Size ;
+         rdfs:label "47 m²" .
+
+ex:Room6 a rental:Room ;
+         rdfs:label "Room 1" .
+
+ex:Room7 a rental:Room ;
+         rdfs:label "Room 2" .
+
+ex:Date4 a rental:Time ;
+         rdfs:label "01/06/2024" .
+
+ex:HighQuality a rental:HighQuality .
+
+# Listing 5
+ex:Apartment5 a rental:Flat ;
+              rental:hasLocation ex:Location5 ;
+              rental:hasPrice ex:Price5 ;
+              rental:hasSize ex:Size5 ;
+              rental:hasRoom ex:Room8, ex:Room9 ;
+              rental:originatesFrom ex:Date5 ;
+              rental:hasQuality ex:HighQuality .
+
+ex:Location5 a rental:Location ;
+             rdfs:label "Wrocław, ulica Romana Dmowskiego" .
+
+ex:Price5 a rental:Price ;
+          rdfs:label "5541 PLN/month" .
+
+ex:Size5 a rental:Size ;
+         rdfs:label "59 m²" .
+
+ex:Room8 a rental:Room ;
+         rdfs:label "Room 1" .
+
+ex:Room9 a rental:Room ;
+         rdfs:label "Room 2" .
+
+ex:Date5 a rental:Time ;
+         rdfs:label "25/05/2024" .
+
+ex:HighQuality a rental:HighQuality .
+
+# Listing 6
+ex:Apartment6 a rental:Flat ;
+              rental:hasLocation ex:Location6 ;
+              rental:hasPrice ex:Price6 ;
+              rental:hasSize ex:Size6 ;
+              rental:hasRoom ex:Room10 ;
+              rental:originatesFrom ex:Date6 ;
+              rental:hasQuality ex:HighQuality .
+
+ex:Location6 a rental:Location ;
+             rdfs:label "Wrocław, ulica ks. Norberta Bonczyka" .
+
+ex:Price6 a rental:Price ;
+          rdfs:label "3504 PLN/month" .
+
+ex:Size6 a rental:Size ;
+         rdfs:label "48 m²" .
+
+ex:Room10 a rental:Room ;
+          rdfs:label "Room 1" .
+
+ex:Date6 a rental:Time ;
+         rdfs:label "25/05/2024" .
+
+ex:HighQuality a rental:HighQuality .
+
+# Listing 7
+ex:Apartment7 a rental:Flat ;
+              rental:hasLocation ex:Location7 ;
+              rental:hasPrice ex:Price7 ;
+              rental:hasSize ex:Size7 ;
+              rental:hasRoom ex:Room11 ;
+              rental:originatesFrom ex:Date7 ;
+              rental:hasQuality ex:HighQuality .
+
+ex:Location7 a rental:Location ;
+             rdfs:label "Wrocław, ulica Romana Dmowskiego" .
+
+ex:Price7 a rental:Price ;
+          rdfs:label "5507 PLN/month" .
+
+ex:Size7 a rental:Size ;
+         rdfs:label "47 m²" .
+
+ex:Room11 a rental:Room ;
+          rdfs:label "Room 1" .
+
+ex:Date7 a rental:Time ;
+         rdfs:label "01/07/2024" .
+
+ex:HighQuality a rental:HighQuality .
+
+# Listing 8
+ex:Apartment8 a rental:Flat ;
+              rental:hasLocation ex:Location8 ;
+              rental:hasPrice ex:Price8 ;
+              rental:hasSize ex:Size8 ;
+              rental:hasRoom ex:Room12, ex:Room13, ex:Room14 ;
+              rental:originatesFrom ex:Date8 ;
+              rental:hasQuality ex:HighQuality .
+
+ex:Location8 a rental:Location ;
+             rdfs:label "Wrocław, ulica Kotlarska" .
+
+ex:Price8 a rental:Price ;
+          rdfs:label "5115 PLN/month" .
+
+ex:Size8 a rental:Size ;
+         rdfs:label "47 m²" .
+
+ex:Room12 a rental:Room ;
+          rdfs:label "Room 1" .
+
+ex:Room13 a rental:Room ;
+          rdfs:label "Room 2" .
+
+ex:Room14 a rental:Room ;
+          rdfs:label "Room 3" .
+
+ex:Date8 a rental:Time ;
+         rdfs:label "25/05/2024" .
+
+ex:HighQuality a rental:HighQuality .
+
+# Listing 9
+ex:Apartment9 a rental:Flat ;
+              rental:hasLocation ex:Location9 ;
+              rental:hasPrice ex:Price9 ;
+              rental:hasSize ex:Size9 ;
+              rental:hasRoom ex:Room15 ;
+              rental:originatesFrom ex:Date9 ;
+              rental:hasQuality ex:HighQuality .
+
+ex:Location9 a rental:Location ;
+             rdfs:label "Wrocław, ulica Księcia Witolda" .
+
+ex:Price9 a rental:Price ;
+          rdfs:label "6508 PLN/month" .
+
+ex:Size9 a rental:Size ;
+         rdfs:label "29 m²" .
+
+ex:Room15 a rental:Room ;
+          rdfs:label "Room 1" .
+
+ex:Date9 a rental:Time ;
+         rdfs:label "05/07/2024" .
+
+ex:HighQuality a rental:HighQuality .
+
+# Listing 10
+ex:Apartment10 a rental:Flat ;
+               rental:hasLocation ex:Location10 ;
+               rental:hasPrice ex:Price10 ;
+               rental:hasSize ex:Size10 ;
+               rental:hasRoom ex:Room16 ;
+               rental:originatesFrom ex:Date10 ;
+               rental:hasQuality ex:HighQuality .
+
+ex:Location10 a rental:Location ;
+              rdfs:label "Wrocław, ulica Inżynierska" .
+
+ex:Price10 a rental:Price ;
+           rdfs:label "6808 PLN/month" .
+
+ex:Size10 a rental:Size ;
+          rdfs:label "28 m²" .
+
+ex:Room16 a rental:Room ;
+          rdfs:label "Room 1" .
+
+ex:Date10 a rental:Time ;
+          rdfs:label "31/05/2024" .
+
+ex:HighQuality a rental:HighQuality .
+
+# Listing 11
+ex:Apartment11 a rental:Flat ;
+               rental:hasLocation ex:Location11 ;
+               rental:hasPrice ex:Price11 ;
+               rental:hasSize ex:Size11 ;
+               rental:hasRoom ex:Room17, ex:Room18, ex:Room19 ;
+               rental:originatesFrom ex:Date11 ;
+               rental:hasQuality ex:HighQuality .
+
+ex:Location11 a rental:Location ;
+              rdfs:label "Wrocław, ulica Bolesława Prusa" .
+
+ex:Price11 a rental:Price ;
+           rdfs:label "3474 PLN/month" .
+
+ex:Size11 a rental:Size ;
+          rdfs:label "52 m²" .
+
+ex:Room17 a rental:Room ;
+          rdfs:label "Room 1" .
+
+ex:Room18 a rental:Room ;
+          rdfs:label "Room 2" .
+
+ex:Room19 a rental:Room ;
+          rdfs:label "Room 3" .
+
+ex:Date11 a rental:Time ;
+          rdfs:label "25/05/2024" .
+
+ex:HighQuality a rental:HighQuality .
+
+# Listing 12
+ex:Apartment12 a rental:Flat ;
+               rental:hasLocation ex:Location12 ;
+               rental:hasPrice ex:Price12 ;
+               rental:hasSize ex:Size12 ;
+               rental:hasRoom ex:Room20 ;
+               rental:originatesFrom ex:Date12 ;
+               rental:hasQuality ex:HighQuality .
+
+ex:Location12 a rental:Location ;
+              rdfs:label "Wrocław, ulica Bolesława Prusa" .
+
+ex:Price12 a rental:Price ;
+           rdfs:label "7509 PLN/month" .
+
+ex:Size12 a rental:Size ;
+          rdfs:label "33 m²" .
+
+ex:Room20 a rental:Room ;
+          rdfs:label "Room 1" .
+
+ex:Date12 a rental:Time ;
+          rdfs:label "28/05/2024" .
+
+ex:HighQuality a rental:HighQuality .
+
+# Listing 13
+ex:Apartment13 a rental:Flat ;
+               rental:hasLocation ex:Location13 ;
+               rental:hasPrice ex:Price13 ;
+               rental:hasSize ex:Size13 ;
+               rental:hasRoom ex:Room21 ;
+               rental:originatesFrom ex:Date13 ;
+               rental:hasQuality ex:HighQuality .
+
+ex:Location13 a rental:Location ;
+              rdfs:label "Wrocław, ulica Braniborska" .
+
+ex:Price13 a rental:Price ;
+           rdfs:label "7509 PLN/month" .
+
+ex:Size13 a rental:Size ;
+          rdfs:label "33 m²" .
+
+ex:Room21 a rental:Room ;
+          rdfs:label "Room 1" .
+
+ex:Date13 a rental:Time ;
+          rdfs:label "28/05/2024" .
+
+ex:HighQuality a rental:HighQuality .
+
+# Listing 14
+ex:Apartment14 a rental:Flat ;
+               rental:hasLocation ex:Location14 ;
+               rental:hasPrice ex:Price14 ;
+               rental:hasSize ex:Size14 ;
+               rental:hasRoom ex:Room22, ex:Room23, ex:Room24 ;
+               rental:originatesFrom ex:Date14 ;
+               rental:hasQuality ex:HighQuality .
+
+ex:Location14 a rental:Location ;
+              rdfs:label "Wrocław, aleja Architektów" .
+
+ex:Price14 a rental:Price ;
+           rdfs:label "7500 PLN/month" .
+
+ex:Size14 a rental:Size ;
+          rdfs:label "40 m²" .
+
+ex:Room22 a rental:Room ;
+          rdfs:label "Room 1" .
+
+ex:Room23 a rental:Room ;
+          rdfs:label "Room 2" .
+
+ex:Room24 a rental:Room ;
+          rdfs:label "Room 3" .
+
+ex:Date14 a rental:Time ;
+          rdfs:label "13/07/2024" .
+
+ex:HighQuality a rental:HighQuality .
+
+# Listing 15
+ex:Apartment15 a rental:Flat ;
+               rental:hasLocation ex:Location15 ;
+               rental:hasPrice ex:Price15 ;
+               rental:hasSize ex:Size15 ;
+               rental:hasRoom ex:Room25, ex:Room26, ex:Room27 ;
+               rental:originatesFrom ex:Date15 ;
+               rental:hasQuality ex:HighQuality .
+
+ex:Location15 a rental:Location ;
+              rdfs:label "Wrocław, ulica gen. Władysława Sikorskiego" .
+
+ex:Price15 a rental:Price ;
+           rdfs:label "8700 PLN/month" .
+
+ex:Size15 a rental:Size ;
+          rdfs:label "47 m²" .
+
+ex:Room25 a rental:Room ;
+          rdfs:label "Room 1" .
+
+ex:Room26 a rental:Room ;
+          rdfs:label "Room 2" .
+
+ex:Room27 a rental:Room ;
+          rdfs:label "Room 3" .
+
+ex:Date15 a rental:Time ;
+          rdfs:label "03/07/2024" .
+
+ex:HighQuality a rental:HighQuality .
+
+# Listing 16
+ex:Apartment16 a rental:Flat ;
+               rental:hasLocation ex:Location16 ;
+               rental:hasPrice ex:Price16 ;
+               rental:hasSize ex:Size16 ;
+               rental:hasRoom ex:Room28, ex:Room29, ex:Room30, ex:Room31 ;
+               rental:originatesFrom ex:Date16 ;
+               rental:hasQuality ex:HighQuality .
+
+ex:Location16 a rental:Location ;
+              rdfs:label "Wrocław, ulica Podwale" .
+
+ex:Price16 a rental:Price ;
+           rdfs:label "9000 PLN/month" .
+
+ex:Size16 a rental:Size ;
+          rdfs:label "59 m²" .
+
+ex:Room28 a rental:Room ;
+          rdfs:label "Room 1" .
+
+ex:Room29 a rental:Room ;
+          rdfs:label "Room 2" .
+
+ex:Room30 a rental:Room ;
+          rdfs:label "Room 3" .
+
+ex:Room31 a rental:Room ;
+          rdfs:label "Room 4" .
+
+ex:Date16 a rental:Time ;
+          rdfs:label "02/07/2024" .
+
+ex:HighQuality a rental:HighQuality .
+
+# Listing 17
+ex:Apartment17 a rental:Flat ;
+               rental:hasLocation ex:Location17 ;
+               rental:hasPrice ex:Price17 ;
+               rental:hasSize ex:Size17 ;
+               rental:hasRoom ex:Room32, ex:Room33, ex:Room34 ;
+               rental:originatesFrom ex:Date17 ;
+               rental:hasQuality ex:HighQuality .
+
+ex:Location17 a rental:Location ;
+              rdfs:label "Wrocław, ulica Bolesławiecka" .
+
+ex:Price17 a rental:Price ;
+           rdfs:label "5925 PLN/month" .
+
+ex:Size17 a rental:Size ;
+          rdfs:label "52 m²" .
+
+ex:Room32 a rental:Room ;
+          rdfs:label "Room 1" .
+
+ex:Room33 a rental:Room ;
+          rdfs:label "Room 2" .
+
+ex:Room34 a rental:Room ;
+          rdfs:label "Room 3" .
+
+ex:Date17 a rental:Time ;
+          rdfs:label "01/09/2024" .
+
+ex:HighQuality a rental:HighQuality .
+
+# Listing 18
+ex:Apartment18 a rental:Flat ;
+               rental:hasLocation ex:Location18 ;
+               rental:hasPrice ex:Price18 ;
+               rental:hasSize ex:Size18 ;
+               rental:hasRoom ex:Room35 ;
+               rental:originatesFrom ex:Date18 ;
+               rental:hasQuality ex:HighQuality .
+
+ex:Location18 a rental:Location ;
+              rdfs:label "Wrocław, ulica Stanisława Drabika" .
+
+ex:Price18 a rental:Price ;
+           rdfs:label "3504 PLN/month" .
+
+ex:Size18 a rental:Size ;
+          rdfs:label "50 m²" .
+
+ex:Room35 a rental:Room ;
+          rdfs:label "Room 1" .
+
+ex:Date18 a rental:Time ;
+          rdfs:label "25/05/2024" .
+
+ex:HighQuality a rental:HighQuality .
+
+# Listing 19
+ex:Apartment19 a rental:Flat ;
+               rental:hasLocation ex:Location19 ;
+               rental:hasPrice ex:Price19 ;
+               rental:hasSize ex:Size19 ;
+               rental:hasRoom ex:Room36 ;
+               rental:originatesFrom ex:Date19 ;
+               rental:hasQuality ex:HighQuality .
+
+ex:Location19 a rental:Location ;
+              rdfs:label "Wrocław, ulica Stanisława Drabika" .
+
+ex:Price19 a rental:Price ;
+           rdfs:label "8525 PLN/month" .
+
+ex:Size19 a rental:Size ;
+          rdfs:label "42 m²" .
+
+ex:Room36 a rental:Room ;
+          rdfs:label "Room 1" .
+
+ex:Date19 a rental:Time ;
+          rdfs:label "25/05/2024" .
+
+ex:HighQuality a rental:HighQuality .
+
+# Listing 20
+ex:Apartment20 a rental:Flat ;
+               rental:hasLocation ex:Location20 ;
+               rental:hasPrice ex:Price20 ;
+               rental:hasSize ex:Size20 ;
+               rental:hasRoom ex:Room37 ;
+               rental:originatesFrom ex:Date20 ;
+               rental:hasQuality ex:MediumQuality .
+
+ex:Location20 a rental:Location ;
+              rdfs:label "Wrocław, ulica Bolesława Prusa" .
+
+ex:Price20 a rental:Price ;
+           rdfs:label "2522 PLN/month" .
+
+ex:Size20 a rental:Size ;
+          rdfs:label "20 m²" .
+
+ex:Room37 a rental:Room ;
+          rdfs:label "Room 1" .
+
+ex:Date20 a rental:Time ;
+          rdfs:label "25/05/2024" .
+
+ex:MediumQuality a rental:MediumQuality .
+
+# Listing 21
+ex:Apartment21 a rental:Flat ;
+               rental:hasLocation ex:Location21 ;
+               rental:hasPrice ex:Price21 ;
+               rental:hasSize ex:Size21 ;
+               rental:hasRoom ex:Room38 ;
+               rental:originatesFrom ex:Date21 ;
+               rental:hasQuality ex:MediumQuality .
+
+ex:Location21 a rental:Location ;
+              rdfs:label "Wrocław, ulica Fabryczna" .
+
+ex:Price21 a rental:Price ;
+           rdfs:label "2149 PLN/month" .
+
+ex:Size21 a rental:Size ;
+          rdfs:label "18 m²" .
+
+ex:Room38 a rental:Room ;
+          rdfs:label "Room 1" .
+
+ex:Date21 a rental:Time ;
+          rdfs:label "25/05/2024" .
+
+ex:MediumQuality a rental:MediumQuality .
+
+# Listing 22
+ex:Apartment22 a rental:Flat ;
+               rental:hasLocation ex:Location22 ;
+               rental:hasPrice ex:Price22 ;
+               rental:hasSize ex:Size22 ;
+               rental:hasRoom ex:Room39 ;
+               rental:originatesFrom ex:Date22 ;
+               rental:hasQuality ex:MediumQuality .
+
+ex:Location22 a rental:Location ;
+              rdfs:label "Wrocław, ulica Fabryczna" .
+
+ex:Price22 a rental:Price ;
+           rdfs:label "1878 PLN/month" .
+
+ex:Size22 a rental:Size ;
+          rdfs:label "15 m²" .
+
+ex:Room39 a rental:Room ;
+          rdfs:label "Room 1" .
+
+ex:Date22 a rental:Time ;
+          rdfs:label "25/05/2024" .
+
+ex:MediumQuality a rental:MediumQuality .
+
+# Listing 23
+ex:Apartment23 a rental:Flat ;
+               rental:hasLocation ex:Location23 ;
+               rental:hasPrice ex:Price23 ;
+               rental:hasSize ex:Size23 ;
+               rental:hasRoom ex:Room40 ;
+               rental:originatesFrom ex:Date23 ;
+               rental:hasQuality ex:MediumQuality .
+
+ex:Location23 a rental:Location ;
+              rdfs:label "Wrocław, ulica Bolesława Prusa" .
+
+ex:Price23 a rental:Price ;
+           rdfs:label "1889 PLN/month" .
+
+ex:Size23 a rental:Size ;
+          rdfs:label "18 m²" .
+
+ex:Room40 a rental:Room ;
+          rdfs:label "Room 1" .
+
+ex:Date23 a rental:Time ;
+          rdfs:label "27/05/2024" .
+
+ex:MediumQuality a rental:MediumQuality .
+
+# Listing 24
+ex:Apartment24 a rental:Flat ;
+               rental:hasLocation ex:Location24 ;
+               rental:hasPrice ex:Price24 ;
+               rental:hasSize ex:Size24 ;
+               rental:hasRoom ex:Room41, ex:Room42 ;
+               rental:originatesFrom ex:Date24 ;
+               rental:hasQuality ex:MediumQuality .
+
+ex:Location24 a rental:Location ;
+              rdfs:label "Wrocław, ulica Bolesława Prusa" .
+
+ex:Price24 a rental:Price ;
+           rdfs:label "2248 PLN/month" .
+
+ex:Size24 a rental:Size ;
+          rdfs:label "25 m²" .
+
+ex:Room41 a rental:Room ;
+          rdfs:label "Room 1" .
+
+ex:Room42 a rental:Room ;
+          rdfs:label "Room 2" .
+
+ex:Date24 a rental:Time ;
+          rdfs:label "31/05/2024" .
+
+ex:MediumQuality a rental:MediumQuality .
+
+# Listing 25
+ex:Apartment25 a rental:Flat ;
+               rental:hasLocation ex:Location25 ;
+               rental:hasPrice ex:Price25 ;
+               rental:hasSize ex:Size25 ;
+               rental:hasRoom ex:Room43 ;
+               rental:originatesFrom ex:Date25 ;
+               rental:hasQuality ex:MediumQuality .
+
+ex:Location25 a rental:Location ;
+              rdfs:label "Wrocław, Bolesławiecka" .
+
+ex:Price25 a rental:Price ;
+           rdfs:label "1595 PLN/month" .
+
+ex:Size25 a rental:Size ;
+          rdfs:label "20 m²" .
+
+ex:Room43 a rental:Room ;
+          rdfs:label "Room 1" .
+
+ex:Date25 a rental:Time ;
+          rdfs:label "25/05/2024" .
+
+ex:MediumQuality a rental:MediumQuality .
+
+# Listing 26
+ex:Apartment26 a rental:Flat ;
+               rental:hasLocation ex:Location26 ;
+               rental:hasPrice ex:Price26 ;
+               rental:hasSize ex:Size26 ;
+               rental:hasRoom ex:Room44, ex:Room45 ;
+               rental:originatesFrom ex:Date26 ;
+               rental:hasQuality ex:MediumQuality .
+
+ex:Location26 a rental:Location ;
+              rdfs:label "Wrocław, ulica Odona Bujwida" .
+
+ex:Price26 a rental:Price ;
+           rdfs:label "2251 PLN/month" .
+
+ex:Size26 a rental:Size ;
+          rdfs:label "22 m²" .
+
+ex:Room44 a rental:Room ;
+          rdfs:label "Room 1" .
+
+ex:Room45 a rental:Room ;
+          rdfs:label "Room 2" .
+
+ex:Date26 a rental:Time ;
+          rdfs:label "28/05/2024" .
+
+ex:MediumQuality a rental:MediumQuality .
+
+# Listing 27
+ex:Apartment27 a rental:Flat ;
+               rental:hasLocation ex:Location27 ;
+               rental:hasPrice ex:Price27 ;
+               rental:hasSize ex:Size27 ;
+               rental:hasRoom ex:Room46 ;
+               rental:originatesFrom ex:Date27 ;
+               rental:hasQuality ex:MediumQuality .
+
+ex:Location27 a rental:Location ;
+              rdfs:label "Wrocław, ulica Piękna" .
+
+ex:Price27 a rental:Price ;
+           rdfs:label "3504 PLN/month" .
+
+ex:Size27 a rental:Size ;
+          rdfs:label "50 m²" .
+
+ex:Room46 a rental:Room ;
+          rdfs:label "Room 1" .
+
+ex:Date27 a rental:Time ;
+          rdfs:label "25/05/2024" .
+
+ex:MediumQuality a rental:MediumQuality .
+
+# Listing 28
+ex:Apartment28 a rental:Flat ;
+               rental:hasLocation ex:Location28 ;
+               rental:hasPrice ex:Price28 ;
+               rental:hasSize ex:Size28 ;
+               rental:hasRoom ex:Room47 ;
+               rental:originatesFrom ex:Date28 ;
+               rental:hasQuality ex:MediumQuality .
+
+ex:Location28 a rental:Location ;
+              rdfs:label "Wrocław, ulica Fabryczna" .
+
+ex:Price28 a rental:Price ;
+           rdfs:label "1364 PLN/month" .
+
+ex:Size28 a rental:Size ;
+          rdfs:label "15 m²" .
+
+ex:Room47 a rental:Room ;
+          rdfs:label "Room 1" .
+
+ex:Date28 a rental:Time ;
+          rdfs:label "25/05/2024" .
+
+ex:MediumQuality a rental:MediumQuality .
+
+# Listing 29
+ex:Apartment29 a rental:Flat ;
+               rental:hasLocation ex:Location29 ;
+               rental:hasPrice ex:Price29 ;
+               rental:hasSize ex:Size29 ;
+               rental:hasRoom ex:Room48 ;
+               rental:originatesFrom ex:Date29 ;
+               rental:hasQuality ex:MediumQuality .
+
+ex:Location29 a rental:Location ;
+              rdfs:label "Wrocław, ulica Kręta" .
+
+ex:Price29 a rental:Price ;
+           rdfs:label "1492 PLN/month" .
+
+ex:Size29 a rental:Size ;
+          rdfs:label "17 m²" .
+
+ex:Room48 a rental:Room ;
+          rdfs:label "Room 1" .
+
+ex:Date29 a rental:Time ;
+          rdfs:label "25/05/2024" .
+
+ex:MediumQuality a rental:MediumQuality .
+
+# Listing 30
+ex:Apartment30 a rental:Flat ;
+               rental:hasLocation ex:Location30 ;
+               rental:hasPrice ex:Price30 ;
+               rental:hasSize ex:Size30 ;
+               rental:hasRoom ex:Room49, ex:Room50 ;
+               rental:originatesFrom ex:Date30 ;
+               rental:hasQuality ex:MediumQuality .
+
+ex:Location30 a rental:Location ;
+              rdfs:label "Wrocław, ulica Inowrocławska" .
+
+ex:Price30 a rental:Price ;
+           rdfs:label "1961 PLN/month" .
+
+ex:Size30 a rental:Size ;
+          rdfs:label "39 m²" .
+
+ex:Room49 a rental:Room ;
+          rdfs:label "Room 1" .
+
+ex:Room50 a rental:Room ;
+          rdfs:label "Room 2" .
+
+ex:Date30 a rental:Time ;
+          rdfs:label "25/05/2024" .
+
+ex:MediumQuality a rental:MediumQuality .

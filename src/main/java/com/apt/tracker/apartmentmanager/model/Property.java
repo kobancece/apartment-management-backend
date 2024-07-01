@@ -7,15 +7,11 @@ import jakarta.persistence.*;
 public class Property {
 
     @Id
-    @Column(name = "propertyID")
+    @Column(name = "propertyID", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer propertyID;
 
-    @ManyToOne
-    @JoinColumn(name = "addressID", referencedColumnName = "addressID")
-    private Address address;
-
-    @Column(nullable = false)
+    @Column(name = "propertyName", nullable = false)
     private String propertyName;
 
     @Column(length = 500)
@@ -53,49 +49,23 @@ public class Property {
 
     public Property(String propertyName, Address address, String description) {
         this.propertyName = propertyName;
-        this.address = address;
         this.description = description;
     }
-    /**
-     * @return Integer return the propertyID
-     */
+
     public Integer getPropertyID() {
         return propertyID;
     }
 
-    /**
-     * @param propertyID the propertyID to set
-     */
     public void setPropertyID(Integer propertyID) {
         this.propertyID = propertyID;
     }
 
-    /**
-     * @return String return the propertyName
-     */
     public String getPropertyName() {
         return propertyName;
     }
 
-    /**
-     * @param propertyName
-     */
     public void setPropertyName(String propertyName) {
         this.propertyName = propertyName;
-    }
-
-    /**
-     * @return Address return the address
-     */
-    public Address getAddress() {
-        return address;
-    }
-
-    /**
-     * @param address
-     */
-    public void setAddress(Address address) {
-        this.address = address;
     }
 
     /**

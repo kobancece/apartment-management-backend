@@ -121,4 +121,32 @@ public class UserController {
         return ResponseEntity.ok(users);
     }
 
+    @PostMapping("/{userId}/add-task")
+    public ResponseEntity<?> addTaskToUser(@PathVariable Integer userId, @RequestBody Map<String, Long> request) {
+        Long taskId = request.get("taskId");
+        User updatedUser = userService.updateUserTasks(userId, taskId);
+        if (updatedUser != null) {
+            return ResponseEntity.ok().build();
+        } else {
+            Map<String, Object> response = new HashMap<>();
+            response.put("code", HttpStatus.NOT_FOUND.value());
+            response.put("message", "Unable to add task to user.");
+            return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @PostMapping("/{userId}/add-property")
+    public ResponseEntity<?> addPropertyToUser(@PathVariable Integer userId, @RequestBody Map<String, Long> request) {
+        Long propertyId = request.get("propertyId");
+        User updatedUser = userService.updateUserProperties(userId, propertyId);
+        if (updatedUser != null) {
+            return ResponseEntity.ok().build();
+        } else {
+            Map<String, Object> response = new HashMap<>();
+            response.put("code", HttpStatus.NOT_FOUND.value());
+            response.put("message", "Unable to add property to user.");
+            return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
+        }
+    }
+
 }
